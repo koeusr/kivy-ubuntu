@@ -18,20 +18,27 @@ Ubuntu環境において、Kivy(Python)で作ったアプリケーションを�
 ## ビルド方法
 
 1. Kivyで作ったアプリをUbuntu上に配置する。
-    1. e.g. workフォルダにsample-appフォルダを作成して、その中にmain.pyを配置する。
-2. アプリを配置した場所で"buildozer init"を実施する。そうすると、buildozer.spec(Androidアプリ用のスペック設定ファイル)が作成される。
-4. アプリを配置した場所で"buildozer android debug"を実施する。そうすると、アプリのビルドが実行され、APKファイルが作成される。
-    1. 注)APKファイル作成完了後にエラーメッセージが出力されるが、APKファイル自体の作成は成功しているので問題ない。
-5. ビルドメッセージに"debug.apk"のPathが出力されているので、そのPathを利用して、Android端末にAPKファイルをインストールする。
-    1. adb install -r <debug.apkのPath>
+```
+e.g. workフォルダにsample-appフォルダを作成して、その中にmain.pyを配置する。
+```
+2. アプリを配置した場所で"buildozer init"を実施する。<br>そうすると、buildozer.spec(Androidアプリ用のスペック設定ファイル)が作成される。
+4. アプリを配置した場所で"buildozer android debug"を実施する。
+   <br>そうすると、アプリのビルドが実行され、APKファイルが作成される。
+   <br>注)APKファイル作成完了後にエラーメッセージが出力されるが、APKファイル自体の作成は成功しているので問題ない。
+6. ビルドメッセージに"debug.apk"のPathが出力されているので、そのPathを利用して、Android端末にAPKファイルをインストールする。
+```
+adb install -r <debug.apkのPath>
+```
 
 ## ビルドポイント
 
 #### buildozer.specの書き方
 
 targetAPIとSDKを決定する必要がある。対象とするAndroid端末のOSVersionを調べて、適切な値を設定すること。
-- android.api = xx
-- android.sdk = xx
+```
+android.api = xx
+android.sdk = xx
+```
 
 #### Android端末の開発者モード
 
