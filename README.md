@@ -21,11 +21,20 @@ Ubuntu環境において、Kivy(Python)で作ったアプリケーションを�
 ```
 e.g. workフォルダにsample-appフォルダを作成して、その中にmain.pyを配置する。
 ```
+
 2. アプリを配置した場所で"buildozer init"を実施する。<br>そうすると、buildozer.spec(Androidアプリ用のスペック設定ファイル)が作成される。
-4. アプリを配置した場所で"buildozer android debug"を実施する。
+```
+buildozer init
+```
+
+3. アプリを配置した場所で"buildozer android debug"を実施する。
    <br>そうすると、アプリのビルドが実行され、APKファイルが作成される。
    <br>注)APKファイル作成完了後にエラーメッセージが出力されるが、APKファイル自体の作成は成功しているので問題ない。
-6. ビルドメッセージに"debug.apk"のPathが出力されているので、そのPathを利用して、Android端末にAPKファイルをインストールする。
+```
+buildozer android debug
+```
+
+4. ビルドメッセージに"debug.apk"のPathが出力されているので、そのPathを利用して、Android端末にAPKファイルをインストールする。
 ```
 adb install -r <debug.apkのPath>
 ```
